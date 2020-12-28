@@ -44,5 +44,7 @@ for FILENAME in $(cat ${BUILD_DIR}/.buildcache | sed '/^$/d'); do
   # copy files from cache
   cp -r ${SRC} ${DEST}
 
+  for f in ${BUILD_DIR}/cache/webpack/*.json; do sed -r 's|/tmp/build_[a-zA-Z0-9]+|'${BUILD_DIR}'|g' f; done
+
   echo " ✓"
 done
